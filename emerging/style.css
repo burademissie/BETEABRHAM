@@ -11,6 +11,11 @@ body {
   overflow: hidden;
 }
 
+.image {
+    height: 20px;
+    width: 20px;
+}
+
 .sidebar {
   background-color: #f4f4f4;
   padding: 20px;
