@@ -2,35 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Emerging Technologies Quiz</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Course Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+  
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
-        <img src="photo_2024-11-30_22-18-17.jpg" alt="" style="width: 50%; height: 50%; border-radius: 50%; box-shadow: 10px 10px 80px grey;">
-        <h1>ቤተ አብርሃም 👨‍👩‍👧‍👦</h1>
-      </div>
+  <div id="landing-page">
+    <img src="photo_2024-11-30_22-18-17.jpg" alt="Logo">
+    <h1>ቤተ አብርሃም</h1>
+  </div>
+
+  <div class="layout" style="display: none;">
+    <div class="topbar">
+      <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+      <select id="courseSelect" onchange="changeCourse(this.value)">
+        <option value="emerging">Emerging Tech</option>
+        <option value="civics">Civics</option>
+        <option value="entrepreneur">Entrepreneurship</option>
+        <option value="anthropology">Anthropology</option>
+        <option value="maths">Maths</option>
+        <option value="programming">Programming</option>
+      </select>
+    </div>
+
+    <aside class="sidebar" id="sidebar">
       <h2>Chapters</h2>
-      <ul>
-        <li><button onclick="startChapter(1)">Chapter 1</button></li>
-        <li><button onclick="startChapter(2)">Chapter 2</button></li>
-        <li><button onclick="startChapter(3)">Chapter 3</button></li>
-        <li><button onclick="startChapter(4)">Chapter 4</button></li>
-        <li><button onclick="startChapter(5)">Chapter 5</button></li>
-        <li><button onclick="startChapter(6)">Chapter 6</button></li>
-        <li><button onclick="startChapter(7)">Chapter 7</button></li>
+      <ul id="chapter-buttons">
+        <!-- Buttons will be generated dynamically -->
       </ul>
+      <button onclick="showNotes()" class="note-button">Short Notes</button>
     </aside>
 
     <main class="main-content">
-      <h1>Emerging Technologies Quiz</h1>
+      <h1 id="courseTitle">Emerging Technologies Quiz</h1>
       <div id="quiz-container"></div>
+      <div id="notes-section" style="display: none;">
+        <h2>Select a Chapter to View Notes</h2>
+        <ul id="note-chapters"></ul>
+        <div id="note-content" style="margin-top: 20px;"></div>
+      </div>
     </main>
   </div>
 
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("landing-page").style.display = "none";
+        document.querySelector(".layout").style.display = "flex";
+      }, 5000);
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
